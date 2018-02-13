@@ -1,0 +1,15 @@
+{
+  
+  "entries":
+	[
+	  {
+	  	"hostname": "www.example.com",
+	  	"password": "alskdfjgslkdfjgb"
+	  },
+	  {
+	  	"hostname": "whatever.example.com",
+	  	"password": "alskdjfgnslkdjg"
+	  }
+
+	]
+}
