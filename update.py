@@ -5,9 +5,11 @@ import requests
 import json
 import dns.resolver
 import random
+import os
 
-
-config = json.load(open("config.json", "r"))
+whereami = os.path.dirname(os.path.realpath(__file__))
+config_file = os.path.join(whereami, "config.json")
+config = json.load(open(config_file, "r"))
 
 entries = config["entries"]
 
@@ -58,9 +60,6 @@ def dnsLookup(name, resolver):
 
 def getInterfaceIP(interface):
 
-	return "85.229.205.116"
-
-
 	import socket
 	import fcntl
 	import struct
@@ -101,6 +100,5 @@ for entry in entries:
 
 	resp = requests.post(baseurl, data=entry)
 
-	print resp.status_code, resp.text
-
+	print resp.status_code
 
