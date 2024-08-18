@@ -15,7 +15,7 @@ entries = config["entries"]
 
 baseurl = "https://dyn.dns.he.net/nic/update"
 
-interface = "eth0" #External interface to check IP address of
+interface = str(config["interface"])
 
 he_nameservers = ["ns1.he.net", "ns2.he.net", "ns3.he.net", "ns4.he.net", "ns5.he.net"]
 
@@ -27,7 +27,7 @@ def setupResolver():
 	resolver.nameservers = ['8.8.8.8', '8.8.4.4']
 
 	he_nameserver_ips = []
-	
+
 	#cheatsheet = ['216.218.130.2', '216.218.131.2', '216.218.132.2', '216.66.1.2', '216.66.80.18']
 	#resolver.nameservers = cheatsheet
 	#return resolver
@@ -85,7 +85,7 @@ for entry in entries:
 
 	print "Current:", currentip
 	print "My ip:", myip
-	
+
 	if currentip is None:
 		print "Lookup failed, skipping"
 		continue
