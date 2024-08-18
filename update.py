@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-
+#!/usr/bin/env python3
 
 import requests
 import json
@@ -32,20 +31,20 @@ def setupResolver():
 	#resolver.nameservers = cheatsheet
 	#return resolver
 
-	print "******* Setting up HE resolvers *******"
+	printt("******* Setting up HE resolvers *******")
 
 	for ns in he_nameservers:
-		print "Looking up", ns,
+		print("Looking up", ns,)
 		answers = resolver.query(ns, "A")
 		for data in answers:
 			ns_ip = data.address
-			print "got", ns_ip
+			print("got", ns_ip)
 			he_nameserver_ips.append(ns_ip)
 
 	random.shuffle(he_nameserver_ips)
 	resolver.nameservers = he_nameserver_ips
 
-	print "Using HE NS:", he_nameserver_ips
+	print("Using HE NS:", he_nameserver_ips)
 
 	return resolver
 
@@ -79,26 +78,26 @@ myip = getInterfaceIP(interface)
 for entry in entries:
 	hostname = entry["hostname"]
 
-	print "*******", hostname, "*******"
+	print("*******", hostname, "*******")
 
 	currentip = dnsLookup(hostname, resolver)
 
-	print "Current:", currentip
-	print "My ip:", myip
+	print("Current:", currentip)
+	print("My ip:", myip)
 
 	if currentip is None:
-		print "Lookup failed, skipping"
+		print("Lookup failed, skipping")
 		continue
 
 	if currentip == myip:
-		print "IP matches, skipping"
+		print("IP matches, skipping")
 		continue
 
-	print "New IP, updating"
+	print("New IP, updating")
 
 	entry["myip"] = myip
 
 	resp = requests.post(baseurl, data=entry)
 
-	print resp.status_code
+	print(resp.status_code)
 
