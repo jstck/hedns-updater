@@ -31,7 +31,7 @@ def setupResolver():
 	#resolver.nameservers = cheatsheet
 	#return resolver
 
-	printt("******* Setting up HE resolvers *******")
+	print("******* Setting up HE resolvers *******")
 
 	for ns in he_nameservers:
 		print("Looking up", ns,)
