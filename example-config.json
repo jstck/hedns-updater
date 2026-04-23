@@ -8,7 +8,8 @@
 	  },
 	  {
 	  	"hostname": "whatever.example.com",
-	  	"password": "alskdjfgnslkdjg"
+	  	"password": "alskdjfgnslkdjg",
+	  	"ipv6": true
 	  }
 
 	]
