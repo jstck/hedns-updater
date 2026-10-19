@@ -1,5 +1,6 @@
 {
   "interface": "eth1",
+  "healthcheck_ping_url": "https://hc-ping.com/your-uuid-here",
   "entries":
 	[
 	  {
